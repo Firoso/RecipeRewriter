@@ -1,0 +1,17 @@
+{
+  "recipes": [
+    {
+      "name": "CarrotSoup",
+      "amount": 1,
+      "enabled": true,
+      "minStationLevel": 1,
+      "craftingStation": "piece_workbench",
+      "resources": [
+        {
+          "name": "Carrot",
+          "amount": 1
+        }
+      ]
+    }
+  ]
+}
