@@ -93,7 +93,7 @@ namespace RecipeRewriter
 
                                 break;
                             case "resources":
-                                var resources = property.Value;
+                                JArray resources = (JArray)property.Value;
 
                                 var newResouces = resources.Cast<JObject>().Select(resource =>
                                     {
