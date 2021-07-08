@@ -8,7 +8,7 @@
       "craftingStation": "piece_workbench",
       "resources": [
         {
-          "name": "Carrot",
+          "name": "rk_broth",
           "amount": 1
         }
       ]
