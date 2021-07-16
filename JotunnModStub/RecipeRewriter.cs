@@ -59,16 +59,28 @@ namespace RecipeRewriter
                 {
                     try
                     {
-                        var nameProperty = recipe.Property("name", StringComparison.InvariantCultureIgnoreCase);
+                        // match a recipe
+                        var matchProperty = recipe.Property("match", StringComparison.InvariantCultureIgnoreCase).Value.Value<JObject>();
+
+                        var nameProperty = matchProperty.Property("name", StringComparison.InvariantCultureIgnoreCase);
                         if (nameProperty != null)
                         {
                             Logger.LogMessage($"Found Recipe Rewrite for '{nameProperty.Value}'");
                         }
 
+                        int amountRequirement = 0;
+                        var amountProperty = matchProperty.Property("amount", StringComparison.InvariantCultureIgnoreCase);
+                        if (amountProperty != null)
+                        {
+                            Logger.LogMessage($"Found Requirement 'amount' of '{amountProperty.Value.Value<int>()}'");
+                            amountRequirement = amountProperty.Value.Value<int>();
+                        }
+
                         string recipeItemDropName = nameProperty.Value.Value<string>();
+                        
                         Logger.LogMessage($"Looking for a recipe to match '{recipeItemDropName}'");
 
-                        Recipe recipeToModify = ObjectDB.instance.m_recipes.SingleOrDefault(r => r.m_item?.name?.Equals(recipeItemDropName) ?? false);
+                        Recipe recipeToModify = ObjectDB.instance.m_recipes.SingleOrDefault(r => (r.m_item?.name?.Equals(recipeItemDropName) ?? false) && (amountProperty==null?true:r.m_amount==amountRequirement));
                         Logger.LogMessage($"Found the recipe named '{recipeToModify.name}'");
                         foreach (JProperty property in recipe.Properties().Where(p => !p.Name.Equals("name", StringComparison.InvariantCultureIgnoreCase)))
                         {

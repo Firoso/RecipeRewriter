@@ -1,7 +1,10 @@
 {
   "recipes": [
     {
-      "name": "CarrotSoup",
+      "match": {
+        "name": "CarrotSoup",
+        "amount": 1
+      },
       "amount": 1,
       "enabled": true,
       "minStationLevel": 1,
