@@ -16,6 +16,7 @@ using System.Linq;
 using System.IO;
 using System.Reflection;
 using BepInEx.Logging;
+using static Heightmap;
 
 namespace RecipeRewriter
 {
@@ -238,6 +239,16 @@ namespace RecipeRewriter
                             Log.LogError($"Unable to resolve craftingStation to {craftingStationName}");
                         }
 
+                        break;
+                    case "biomes":
+                        JArray biomes = (JArray)property.Value;
+                        Biome targetBiomes = Biome.None;
+                        foreach (var biome in biomes)
+                        {
+                            Biome biomeValue = (Biome)Enum.Parse(typeof(Biome), biome.Value<string>());
+                            targetBiomes = targetBiomes | biomeValue;
+                        }
+                        pieceToModify.m_onlyInBiome = targetBiomes;
                         break;
                     case "resources":
                         JArray resources = (JArray)property.Value;

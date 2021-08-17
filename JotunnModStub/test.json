@@ -23,24 +23,33 @@
         "name": "piece_stonecutter",
         "buildTool": "Hammer"
       },
-      "resources": [
-        {
-          "name": "Stone",
-          "amount": 25
-        },
-        {
-          "name": "RoundLog",
-          "amount": 10
-        },
-        {
-          "name": "Bronze",
-          "amount": 5
-        },
-        {
-          "name": "SurtlingCore",
-          "amount": 2
-        }
-      ]
+      "biomes": [
+        "Meadows",
+        "BlackForest",
+        "Swamp",
+        "Mountain",
+        "Plains"
+      ],
+        "resources"
+        :
+        [
+          {
+            "name": "Stone",
+            "amount": 25
+          },
+          {
+            "name": "RoundLog",
+            "amount": 10
+          },
+          {
+            "name": "Bronze",
+            "amount": 5
+          },
+          {
+            "name": "SurtlingCore",
+            "amount": 2
+          }
+        ]
     }
   ]
 }

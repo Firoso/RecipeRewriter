@@ -1,0 +1,46 @@
+{
+  "recipes": [
+    {
+      "match": {
+        "name": "CarrotSoup",
+        "amount": 1
+      },
+      "amount": 1,
+      "enabled": true,
+      "minStationLevel": 1,
+      "craftingStation": "piece_workbench",
+      "resources": [
+        {
+          "name": "rk_broth",
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "pieces": [
+    {
+      "match": {
+        "name": "piece_stonecutter",
+        "buildTool": "Hammer"
+      },
+      "resources": [
+        {
+          "name": "Stone",
+          "amount": 25
+        },
+        {
+          "name": "RoundLog",
+          "amount": 10
+        },
+        {
+          "name": "Bronze",
+          "amount": 5
+        },
+        {
+          "name": "SurtlingCore",
+          "amount": 2
+        }
+      ]
+    }
+  ]
+}
